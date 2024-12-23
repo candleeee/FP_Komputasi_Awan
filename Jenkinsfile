@@ -1,21 +1,19 @@
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
-    stages {
+ stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/username/repository.git'
+                git ''
             }
         }
         stage('Install Dependencies') {
             steps {
-                sh 'ansible-galaxy install -r requirements.yml'
+                echo 'Testing...'
             }
         }
         stage('Run Ansible Playbook') {
             steps {
-                ansiblePlaybook credentialsId: 'your-credentials-id', inventory: 'hosts', playbook:
-'playbooks/mariadb.yml'
+               echo 'Testing...'
             }
         }
     }
@@ -25,6 +23,7 @@ pipeline {
         }
         failure {
             echo 'Deployment failed!'
-        }
     }
+    }
+
 }

@@ -15,6 +15,8 @@ services:
       - .:/var/www/katalog-baju-dan-pemesanan/
       - ./storage/php.ini:/usr/local/etc/php/conf.d/local.ini
       - ./storage:/var/www/katalog-baju-dan-pemesanan/storage
+      - ./storage/php.ini:/usr/local/etc/php/conf.d/local.ini`
+
 
     networks:
       - katalog-baju-dan-pemesanan
