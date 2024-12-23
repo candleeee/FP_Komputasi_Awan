@@ -1,9 +1,9 @@
 pipeline {
     agent any
- stages {
+    stages {
         stage('Clone Repository') {
             steps {
-                git ''
+                git 'https://github.com/Faqs1/tubes_komputasi.git'
             }
         }
         stage('Install Dependencies') {
@@ -23,7 +23,6 @@ pipeline {
         }
         failure {
             echo 'Deployment failed!'
-    }
-    }
-
+        }
+    }
 }
