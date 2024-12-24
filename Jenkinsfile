@@ -4,8 +4,8 @@ pipeline {
         stage('Checkout SCM') {
             steps {
                 checkout([$class: 'GitSCM', 
-                          branches: [[name: 'main']], 
-                          userRemoteConfigs: [[url: 'https://github.com/Ghifari25/Laundry_Tubes']]])
+                          branches: [[name: 'master']], 
+                          userRemoteConfigs: [[url: 'https://github.com/candleeee/FP_Komputasi_Awan']]])
             }
         }
         stage('Tool Install') {
