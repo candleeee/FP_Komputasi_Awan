@@ -1,28 +1,25 @@
 pipeline {
     agent any
     stages {
-        stage('Clone Repository') {
+        stage('Checkout SCM') {
             steps {
-                git 'https://github.com/Faqs1/tubes_komputasi.git'
+                checkout([$class: 'GitSCM', 
+                          branches: [[name: 'main']], 
+                          userRemoteConfigs: [[url: 'https://github.com/Ghifari25/Laundry_Tubes']]])
+            }
+        }
+        stage('Tool Install') {
+            steps {
+                echo 'Installing tools...'
             }
         }
         stage('Install Dependencies') {
             steps {
-                echo 'Testing...'
+                echo 'Installing dependencies...'
             }
         }
-        stage('Run Ansible Playbook') {
+        stage('Docker Build') {
             steps {
-               echo 'Testing...'
+                echo 'Building Docker image...'
             }
         }
-    }
-    post {
-        success {
-            echo 'Deployment successful!'
-        }
-        failure {
-            echo 'Deployment failed!'
-        }
-    }
-}
