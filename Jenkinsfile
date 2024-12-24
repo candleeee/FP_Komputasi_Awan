@@ -1,25 +1,28 @@
 pipeline {
     agent any
     stages {
-        stage('Checkout SCM') {
+        stage('Clone Repository') {
             steps {
-                checkout([$class: 'GitSCM', 
-                          branches: [[name: 'master']], 
-                          userRemoteConfigs: [[url: 'https://github.com/candleeee/FP_Komputasi_Awan']]])
-            }
-        }
-        stage('Tool Install') {
-            steps {
-                echo 'Installing tools...'
+                git 'https://github.com/Faqs1/tubes_komputasi.git'
             }
         }
         stage('Install Dependencies') {
             steps {
-                echo 'Installing dependencies...'
+                echo 'Testing...'
             }
         }
-        stage('Docker Build') {
+        stage('Run Ansible Playbook') {
             steps {
-                echo 'Building Docker image...'
+               echo 'Testing...'
             }
         }
+    }
+    post {
+        success {
+            echo 'Deployment successful!'
+        }
+        failure {
+            echo 'Deployment failed!'
+        }
+    }
+}
