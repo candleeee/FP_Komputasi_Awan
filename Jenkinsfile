@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Faqs1/tubes_komputasi.git'
+                git 'https://github.com/candleeee/FP_Komputasi_Awan.git'
             }
         }
         stage('Install Dependencies') {
